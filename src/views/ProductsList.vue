@@ -1,11 +1,11 @@
 <template>
   <div class="products-list">
-    <div v-for="(product, index) in $store.getters.products" :key="index">
+    <div v-for="(product, index) in $store.getters.products" :key="index" @click="$router.push(`/product/${product.slug}`)">
       <img :src="product.imageUrl">
       <h2>{{ product.name }}</h2>
       <p class="description">{{ product.description }}</p>
       <p class="price">{{ product.price }} €</p>
-      <button @click="deleteProduct(index)">Delete product</button>
+      <button @click.stop="deleteProduct(index)">Delete product</button>
     </div>
   </div>
 </template>

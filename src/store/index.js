@@ -36,8 +36,13 @@ export default new Vuex.Store({
     addProduct(state, product) {
       product.slug = slugify(product.name)
       state.products.push(product)
+    },
+    deleteProduct(state, i) {
+      state.products = state.products.slice(0, i).concat(state.products.slice(i + 1, state.products.length))
     }
   },
   actions: {},
-  modules: {},
+  getters: {
+    products: state => state.products
+  },
 });

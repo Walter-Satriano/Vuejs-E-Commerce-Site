@@ -1,9 +1,16 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import VuexPersist from "vuex-persist";
 
 Vue.use(Vuex);
 
 /* eslint-disable */
+const vuexLocalStorage = new VuexPersist({
+  key: "ecommerce", // a unique key to store the data
+  storage: window.localStorage
+})
+
+
 const slugify = str => {
   str = str || ''
   const a = 'àáäâèéëêìíïîòóöôùúüûñçßÿœæŕśńṕẃǵǹḿǘẍźḧ·/_,:;άαβγδεέζήηθιίϊΐκλμνξοόπρσςτυϋύΰφχψωώ'
@@ -64,4 +71,5 @@ export default new Vuex.Store({
     products: state => state.products,
     cart: state => state.cart
   },
+  plugins: [vuexLocalStorage.plugin]
 });

@@ -4,11 +4,26 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/products">Products</router-link> |
-      <router-link to="add-product">Add Product</router-link>
+      <router-link to="/add-product">Add Product</router-link>
     </div>
+
+    <Cart/>
+
     <router-view />
   </div>
 </template>
+
+<script>
+import Cart from './components/Cart'
+
+export default {
+  name: 'App',
+  components: {
+    Cart,
+  }
+}
+</script>
+
 
 <style lang="scss">
 #app {

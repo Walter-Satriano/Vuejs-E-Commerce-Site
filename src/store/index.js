@@ -30,7 +30,8 @@ const slugify = str => {
 
 export default new Vuex.Store({
   state: {
-    products: []
+    products: [],
+    cart: []
   },
   mutations: {
     addProduct(state, product) {
@@ -39,10 +40,28 @@ export default new Vuex.Store({
     },
     deleteProduct(state, i) {
       state.products = state.products.slice(0, i).concat(state.products.slice(i + 1, state.products.length))
-    }
+    },
+    addToCart(state, newItem) {
+      const index = state.cart.findIndex(
+        itemInCart => itemInCart.product.slug === newItem.product.slug
+      )
+      
+      //If the product is already existing in the cart, based on its slug, we increment its quantity.
+      //Otherwise, we add it as a new element.
+      if (index === -1) {
+        //not existing
+        state.cart = [...state.cart, newItem]
+      } else {
+        newItem.quantity += state.cart[index].quantity
+        state.cart = state.cart
+          .filter(item => item.product.slug !== newItem.product.slug)
+          .concat(newItem)
+      }
+    },
   },
   actions: {},
   getters: {
-    products: state => state.products
+    products: state => state.products,
+    cart: state => state.cart
   },
 });

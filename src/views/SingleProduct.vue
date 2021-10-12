@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <div class="content">
-      <h1>{{ product.name }}</h1>
+      <h1>{{product.name}}</h1>
       <p class="description">{{product.description}}</p>
-      <p class="price">${{product.price}}</p>
+      <p class="price">{{product.price}} €</p>
       <button @click="addToCart">Add to cart</button>
     </div>
     <img class="image" :src="product.imageUrl" />

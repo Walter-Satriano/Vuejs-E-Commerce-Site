@@ -40,12 +40,13 @@ export default {
         description: this.description,
         imageUrl: this.imageUrl
       })
+      this.$router.push('/products')
     }
   },
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   input,
   textarea {
     border: 1px solid #ccc;
@@ -60,7 +61,8 @@ export default {
 
   div {
     display: block;
-    padding: 50px;font-size: 1.5rem;
+    padding: 50px;
+    font-size: 1.5rem;
   }
 
   .button {

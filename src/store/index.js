@@ -65,6 +65,9 @@ export default new Vuex.Store({
           .concat(newItem)
       }
     },
+    removeProductFromCart(state, i) {
+      state.cart = state.cart.slice(0, i).concat(state.cart.slice(i +1, state.cart.length))
+    }
   },
   actions: {},
   getters: {

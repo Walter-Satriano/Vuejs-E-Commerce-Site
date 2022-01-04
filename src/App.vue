@@ -2,7 +2,8 @@
   <div id="app">
     <div id="nav" class="d-flex justify-content-between">
       <div>
-        <router-link to="/products">Products</router-link> |
+        <router-link to="/products">Products</router-link>
+        <span class="mx-2">|</span>
         <router-link to="/add-product">Add Product</router-link>
       </div>
       <div>
@@ -64,6 +65,9 @@
       &:hover {
         color: #42b983;
       }
+    }
+    span {
+      color: #42b983;
     }
   }
 </style>

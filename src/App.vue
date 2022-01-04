@@ -6,7 +6,7 @@
         <router-link to="/add-product">Add Product</router-link>
       </div>
       <div>
-        <a class="cartlink" @click='toggleShowCart()'>Cart</a>
+        <a @click='toggleShowCart()'><i class="bi bi-cart3 me-2"></i>Cart</a>
       </div>
     </div>
 
@@ -17,24 +17,24 @@
 </template>
 
 <script>
-import Cart from './components/Cart'
+  import Cart from './components/Cart'
 
-export default {
-  name: 'App',
-  data() {
-    return {
-      showCart: false
+  export default {
+    name: 'App',
+    data() {
+      return {
+        showCart: false
+      }
+    },
+    methods: {
+      toggleShowCart() {
+        this.showCart = !this.showCart
+      }
+    },
+    components: {
+      Cart,
     }
-  },
-  methods: {
-    toggleShowCart() {
-      this.showCart = !this.showCart
-    }
-  },
-  components: {
-    Cart,
   }
-}
 </script>
 
 
@@ -58,6 +58,10 @@ export default {
       text-decoration: none;
 
       &.router-link-exact-active {
+        color: #42b983;
+      }
+
+      &:hover {
         color: #42b983;
       }
     }

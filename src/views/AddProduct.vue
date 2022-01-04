@@ -1,73 +1,68 @@
 <template>
-  <form @submit.prevent="addProduct">
-    <h1>Add Product</h1>
-    <div>
-      <label>Name:</label>
-      <input v-model="name" required>
+  <form @submit.prevent="addProduct" class="text-center">
+    <h1 class="mb-5">Add Product</h1>
+    <div class="col-11 col-md-9 col-lg-8 col-xl-6 form-floating mx-auto mb-3">
+      <input id="name" type="text" class="form-control" placeholder="Insert product name" v-model="name" required>
+      <label for="name" class="form-label">Product Name</label>
     </div>
-    <div>
-      <label>Price in €:</label>
-      <input v-model="price" required>  
+    <div class="col-11 col-md-9 col-lg-8 col-xl-6 form-floating mx-auto mb-3">
+      <input id="price" type="number" class="form-control" placeholder="Insert product price" v-model="price" required>
+      <label for="price">Product Price in €</label>
     </div>
-    <div>
-      <label>Description:</label>
-      <textarea v-model="description" required></textarea>
+    <div class="col-11 col-md-9 col-lg-8 col-xl-6 form-floating mx-auto mb-3">
+      <textarea id="description" class="form-control" placeholder="Insert product description" style="height: 180px" v-model="description" required></textarea>
+      <label for="description">Product Description</label>
     </div>
-    <div>
-      <label>Image URL:</label>
-      <input v-model="imageUrl" required>
+    <div class="col-11 col-md-9 col-lg-8 col-xl-6 form-floating mx-auto mb-3">
+      <input id="imageUrl" class="form-control" placeholder="Insert product image" v-model="imageUrl" required>
+      <label for="imageUrl">Product Image URL</label>
     </div>
-    <input type="submit" value="Add" class="button">
+    <button type="submit" class="btn btn-lg">Add</button>
   </form>
 </template>
 
 <script>
-export default {
-  name: "AddProduct",
-  data() {
-    return {
-      name: '',
-      price: 0,
-      description: '',
-      imageUrl: ''
-    }    
-  },
-  methods: {
-    addProduct() {
-      this.$store.commit('addProduct', {
-        name: this.name,
-        price: this.price,
-        description: this.description,
-        imageUrl: this.imageUrl
-      })
-      this.$router.push('/products')
-    }
-  },
-}
+  export default {
+    name: "AddProduct",
+    data() {
+      return {
+        name: '',
+        price: '',
+        description: '',
+        imageUrl: ''
+      }    
+    },
+    methods: {
+      addProduct() {
+        this.$store.commit('addProduct', {
+          name: this.name,
+          price: this.price,
+          description: this.description,
+          imageUrl: this.imageUrl
+        })
+        this.$router.push('/products')
+      }
+    },
+  }
 </script>
 
 <style lang="scss" scoped>
   input,
   textarea {
-    border: 1px solid #ccc;
-    padding: 20px;
-    vertical-align: middle;
+    border: 1px solid black;
+    color: black;
+    font-size: 1.2rem;
+    box-shadow: 3px 3px 5px #888888;
   }
 
   label {
-    vertical-align: middle;
-    padding-right: 10px;
+    font-size: 1.2rem;
   }
 
-  div {
-    display: block;
-    padding: 50px;
-    font-size: 1.5rem;
-  }
-
-  .button {
+  button {
     background-color: #2c3e50;
+    border-color: #2c3e50;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 </style>

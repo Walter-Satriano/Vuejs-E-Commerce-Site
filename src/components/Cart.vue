@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="col-5">
     <h2>CART</h2>
     <div v-if="$store.getters.cart.length > 0">
       <div v-for="(item, index) in $store.getters.cart" :key="index" class="d-flex">
@@ -7,9 +7,9 @@
           <img :src="item.product.imageUrl" alt="">
         </div>
         <div>
-          <h3>{{item.product.name}}</h3>
+          <h3 class="text-uppercase">{{item.product.name}}</h3>
           <p>Quantity: {{item.quantity}}</p>
-          <p>Total Price: {{item.quantity * item.product.price}}</p>
+          <p>Total Price: {{item.quantity * item.product.price}} €</p>
           <button @click.stop="removeProductFromCart(index)">Remove</button>
         </div>
       </div>

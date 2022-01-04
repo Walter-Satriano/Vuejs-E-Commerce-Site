@@ -1,52 +1,64 @@
 <template>
-  <div class="products-list">
-    <div v-for="(product, index) in $store.getters.products" :key="index">
-      <img :src="product.imageUrl">
-      <h2>{{ product.name }}</h2>
-      <p class="description">{{ product.description }}</p>
-      <p class="price">{{ product.price }} €</p>
-      <button @click="$router.push(`/product/${product.slug}`)">See Details</button>
-      <button @click.stop="deleteProduct(index)">Delete product</button>
+  <div class="container-fluid bg-light py-5">
+    <div class="row justify-content-center">
+      <div class="product-card position-relative col-sm-12 col-md-6 col-lg-4 col-xxl-3 text-center mb-5 px-0 mx-md-3"
+        v-for="(product, index) in $store.getters.products" :key="index">
+        <img :src="product.imageUrl" class="mb-4">
+        <h2 class="text-uppercase">{{ product.name }}</h2>
+        <p class="description">{{ product.description }}</p>
+        <p class="price">{{ product.price }} €</p>
+        <button @click="$router.push(`/product/${product.slug}`)" class="mb-4">See Details</button>
+        
+        <div class="position-absolute top-0 end-0 mt-2 me-2" @click.stop="deleteProduct(index)">
+          <i class="bi bi-x-lg fs-3"></i>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'ProductsList',
-  methods: {
-    deleteProduct(index) {
-      this.$store.commit('deleteProduct', index)
+  export default {
+    name: 'ProductsList',
+    methods: {
+      deleteProduct(index) {
+        this.$store.commit('deleteProduct', index)
+      }
     }
-  },
-}
+  }
 </script>
 
-<style scoped>
-  .products-list {
-    display: flex;
-    padding-top: 30px;
+<style lang="scss" scoped>
+  .product-card {
+    max-width: 300px;
+    border-radius: 15px;
+    box-shadow: 6px 6px 12px #818181;
+
+    img {
+      width: 300px;
+      height: auto;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+    .price {
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .description {
+      font-size: 1.2rem;
+    }
   }
 
-  img {
-    width: 300px;
-    height: auto;
-  }
+  @media (min-width: 576px) and (max-width: 768px) {
+    .product-card {
+      max-width: 400px;
 
-  .products-list div {
-    box-sizing: border-box;
-    padding: 30px;
-    background-color: lightsalmon;
-    margin: 0 20px;
-  }
-
-  button {
-    padding: 5px;
-    font-size: 1rem;
-  }
-
-  .description,
-  .price {
-    padding-top: 20px;
+      img {
+        width: 400px;
+        height: auto;
+      }
+    }
   }
 </style>

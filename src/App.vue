@@ -1,9 +1,13 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/products">Products</router-link> |
-      <router-link to="/add-product">Add Product</router-link> |
-      <a class="pointer" @click='toggleShowCart()'>Cart</a>
+    <div id="nav" class="d-flex justify-content-between">
+      <div>
+        <router-link to="/products">Products</router-link> |
+        <router-link to="/add-product">Add Product</router-link>
+      </div>
+      <div>
+        <a class="cartlink" @click='toggleShowCart()'>Cart</a>
+      </div>
     </div>
 
     <Cart v-show="showCart" />
@@ -35,21 +39,23 @@ export default {
 
 
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+  @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css");
+
+  
   #app {
     font-family: 'Montserrat', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
   }
 
   #nav {
     padding: 30px;
+    font-size: 1.5rem;
+    background-color: black;
 
     a {
-      font-weight: bold;
-      color: #2c3e50;
+      color: white;
       cursor: pointer;
+      text-decoration: none;
 
       &.router-link-exact-active {
         color: #42b983;

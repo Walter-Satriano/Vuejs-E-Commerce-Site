@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid bg-light py-5">
+  <div class="container-fluid bg-light container-padding">
     <div class="row justify-content-center">
       <div class="product-card position-relative col-sm-12 col-md-6 col-lg-4 col-xxl-3 text-center mb-5 px-0 mx-md-3 bg-white"
         v-for="(product, index) in $store.getters.products" :key="index">
@@ -29,6 +29,10 @@
 </script>
 
 <style lang="scss" scoped>
+  .container-padding {
+    padding-top: 13rem;
+  }
+  
   .product-card {
     max-width: 300px;
     border-radius: 15px;

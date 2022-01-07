@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="addProduct" class="text-center">
-    <h1 class="my-5">Add New Product</h1>
+    <h1 class="mb-5">Add New Product</h1>
     <div class="col-11 col-md-9 col-lg-8 col-xl-6 form-floating mx-auto mb-3">
       <input id="name" type="text" class="form-control" placeholder="Insert product name" v-model="name" required>
       <label for="name" class="form-label">Product Name</label>
@@ -47,6 +47,11 @@
 </script>
 
 <style lang="scss" scoped>
+  form {
+    padding-top: 13rem;
+    padding-bottom: 5rem;
+  }
+
   input,
   textarea {
     border: 1px solid black;

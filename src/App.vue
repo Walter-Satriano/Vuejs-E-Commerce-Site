@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <div id="nav" class="d-flex justify-content-between">
+    <nav class="d-flex justify-content-center">
       <div>
         <router-link to="/products">Products</router-link>
         <span class="mx-2">|</span>
         <router-link to="/add-product">Add Product</router-link>
       </div>
-      <div>
-        <a @click='toggleShowCart()'><i class="bi bi-cart3 me-2"></i>Cart</a>
+    </nav>
+    <div id="cart-link" class="position-relative py-2">
+      <a @click='toggleShowCart()'><i class="bi bi-cart3 me-2"></i>Your Cart</a>
+      <div class="position-absolute start-50 translate-middle-x">
+        <Cart v-show="showCart" />
       </div>
     </div>
-
-    <Cart v-show="showCart" />
 
     <router-view />
   </div>
@@ -48,26 +49,48 @@
     font-family: 'Montserrat', sans-serif;
   }
 
-  #nav {
+  nav {
     padding: 30px;
     font-size: 1.5rem;
+    font-weight: 600;
     background-color: black;
 
     a {
-      color: white;
+      color: rgb(179, 152, 1);
       cursor: pointer;
       text-decoration: none;
 
       &.router-link-exact-active {
-        color: #42b983;
+        color: rgb(226, 193, 4);
       }
 
       &:hover {
-        color: #42b983;
+        color: rgb(226, 193, 4);
       }
     }
+    
     span {
-      color: #42b983;
+      color: rgb(226, 193, 4);
+    }
+  }
+
+  #cart-link {
+    background-color: rgb(179, 152, 1);
+    text-align: center;
+
+    a {
+      font-size: 1.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+
+      &:hover {
+        color: rgb(226, 193, 4);
+      }
+    }
+
+    div {
+      z-index: 10;
     }
   }
 </style>

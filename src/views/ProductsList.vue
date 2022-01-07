@@ -55,6 +55,7 @@
       box-shadow: 3px 3px 6px #818181;
       color: white;
       border: none;
+      border-radius: 10px;      
 
       &:hover {
         background-color: rgb(226, 193, 4);

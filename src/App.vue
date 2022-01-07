@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-    <nav class="d-flex justify-content-center">
-      <div>
-        <router-link to="/products">Products</router-link>
-        <span class="mx-2">|</span>
-        <router-link to="/add-product">Add Product</router-link>
-      </div>
-    </nav>
-    <div id="cart-link" class="position-relative py-2">
-      <a @click='toggleShowCart()'><i class="bi bi-cart3 me-2"></i>Your Cart</a>
-      <div class="position-absolute start-50 translate-middle-x">
-        <Cart v-show="showCart" />
+    <div class="fixed-top">
+      <nav class="d-flex justify-content-center">
+        <div>
+          <router-link to="/products">Products</router-link>
+          <span class="mx-2">|</span>
+          <router-link to="/add-product">Add Product</router-link>
+        </div>
+      </nav>
+      <div id="cart-link" class="position-relative py-2">
+        <a @click='toggleShowCart()'><i class="bi bi-cart3 me-2"></i>Your Cart</a>
+        <div class="position-absolute start-50 translate-middle-x">
+          <Cart v-show="showCart" />
+        </div>
       </div>
     </div>
 

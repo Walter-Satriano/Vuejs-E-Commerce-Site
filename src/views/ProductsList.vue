@@ -1,18 +1,21 @@
 <template>
-  <div class="container-fluid bg-light container-padding">
-    <div class="row justify-content-center">
+  <div class="container-fluid container-padding">
+    <div v-if="$store.getters.products.length > 0" class="row justify-content-center">
       <div class="product-card position-relative col-sm-12 col-md-6 col-lg-4 col-xxl-3 text-center mb-5 px-0 mx-md-3 bg-white"
         v-for="(product, index) in $store.getters.products" :key="index">
         <img :src="product.imageUrl" class="mb-4">
         <h2 class="text-uppercase">{{ product.name }}</h2>
         <p class="description">{{ product.description }}</p>
         <p class="price">{{ product.price }} €</p>
-        <button @click="$router.push(`/product/${product.slug}`)" class=" btn-lg mb-4">Product Details</button>
+        <button @click="$router.push(`/product/${product.slug}`)" class="btn-lg mb-4">Product Details</button>
 
         <div class="position-absolute top-0 end-0 mt-2 me-2" @click.stop="deleteProduct(index)">
           <i class="bi bi-x-lg fs-3"></i>
         </div>
       </div>
+    </div>
+    <div v-else class="text-center position-absolute top-50 start-50 translate-middle">
+      <h4>Please, add your first product to start!</h4>
     </div>
   </div>
 </template>

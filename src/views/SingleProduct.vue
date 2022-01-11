@@ -1,66 +1,75 @@
 <template>
-  <div class="container">
-    <div class="content">
-      <h1>{{product.name}}</h1>
-      <p class="description">{{product.description}}</p>
-      <p class="price">{{product.price}} €</p>
-      <button @click="addToCart">Add to cart</button>
+  <div class="container product-detail">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-12 col-sm-9 col-md-7 text-center col-lg-6 mb-4 mb-lg-0">
+        <img class="w-75" :src="product.imageUrl" />
+      </div>
+      <div class="col-12 col-sm-11 col-md-10 col-lg-6 text-center">
+        <h3 class="text-uppercase">{{product.name}}</h3>
+        <p class="description">{{product.description}}</p>
+        <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+          Dolorem, optio accusantium tempore exercitationem fugit laudantium est quae laboriosam esse nihil perspiciatis 
+          reprehenderit harum et fugiat rerum sequi quisquam aspernatur vitae.
+        </p>
+        <p class="price">{{product.price}} €</p>
+        <button class="btn-lg" @click="addToCart">Add to cart</button>
+      </div>
     </div>
-    <img class="image" :src="product.imageUrl" />
   </div>
 </template>
 
 <script>
-export default {
-  name: 'SingleProduct',
-  data() {
-    return {
-      product: {}
-    }
-  },
-  mounted() {
-    this.product = this.$store.getters.products
-      .filter(item => item.slug === this.$route.params.slug)
-      .shift()
-  },
-  methods: {
-    addToCart() {
-      this.$store.commit('addToCart', {
-        product: this.product,
-        quantity: 1
-      })
+  export default {
+    name: 'SingleProduct',
+    data() {
+      return {
+        product: {}
+      }
+    },
+    mounted() {
+      this.product = this.$store.getters.products
+        .filter(item => item.slug === this.$route.params.slug)
+        .shift()
+    },
+    methods: {
+      addToCart() {
+        this.$store.commit('addToCart', {
+          product: this.product,
+          quantity: 1
+        })
+      }
     }
   }
-}
 </script>
 
-<style scoped>
-  .container {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    padding-top: 50px;
-    margin: 0 auto;
-    max-width: 1200px;
+<style lang="scss" scoped>
+  .product-detail {
+    padding-top: 13rem;
+
+    img {
+      box-shadow: 4px 4px 8px #818181;
+    }
+
+    .description {
+      font-size: 1.2rem;
+    }
+
+    .price {
+      font-weight: 600;
+      font-size: 1.3rem;
+    }
+
+    button {
+      background-color: rgb(179, 152, 1);
+      box-shadow: 3px 3px 6px #818181;
+      color: white;
+      border: none;
+      border-radius: 10px;      
+
+      &:hover {
+        background-color: rgb(226, 193, 4);
+      }
+    }
   }
 
-  .image {
-    width: 500px;
-    height: auto;
-  }
-
-  .content h1 {
-    padding-bottom: 50px;
-  }
-
-  .description,
-  .price {
-    padding-top: 20px;
-  }
-
-  button {
-    margin-top: 50px;
-    padding: 10px 40px;
-    background-color: lightgreen;
-    border-color: gray;
-  }
 </style>

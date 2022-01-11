@@ -17,6 +17,10 @@
     </div>
 
     <router-view />
+
+    <footer class="position-absolute top-100 start-50 translate-middle w-100 bg-black text-center">
+      <p class="m-0 py-2">Developed By Walter Satriano</p>
+    </footer>
   </div>
 </template>
 
@@ -91,8 +95,48 @@
       }
     }
 
+    i {
+      font-size: 1.8rem;
+    }
+
     div {
       z-index: 10;
+    }
+  }
+
+  footer {
+    p {
+      color: rgb(179, 152, 1);
+      font-weight: 600;
+    }
+  }
+
+  @media (min-width: 320px) and (max-width: 450px) {
+    nav {
+    padding: 20px;
+    font-size: 1.3rem;
+
+    }
+
+    #cart-link {
+
+      a {
+        font-size: 1.3rem;
+
+        &:hover {
+          color: rgb(226, 193, 4);
+        }
+      }
+
+      i {
+        font-size: 1.5rem;
+      }
+    }
+    
+    footer {
+      p {
+        font-size: 0.9rem;
+      }
     }
   }
 </style>

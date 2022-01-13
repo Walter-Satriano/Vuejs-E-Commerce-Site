@@ -8,6 +8,11 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    path: "/",
+    name: "home",
+    component: ProductsList,
+  },
+  {
     path: "/products",
     name: "products",
     component: ProductsList,

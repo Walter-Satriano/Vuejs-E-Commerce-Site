@@ -1,5 +1,5 @@
 <template>
-  <div class="container product-detail">
+  <div class="container product-detail pb-5">
     <div class="row justify-content-center align-items-center">
       <div class="col-12 col-sm-9 col-md-7 text-center col-lg-6 mb-4 mb-lg-0">
         <img class="w-75" :src="product.imageUrl" />
@@ -12,7 +12,7 @@
           reprehenderit harum et fugiat rerum sequi quisquam aspernatur vitae.
         </p>
         <p class="price">{{product.price}} €</p>
-        <button class="btn-lg" @click="addToCart">Add to cart</button>
+        <button class="btn-lg" @click="addToCart"><i class="bi bi-cart-plus fs-4 me-3"></i>Add to cart</button>
       </div>
     </div>
   </div>
@@ -63,6 +63,7 @@
       background-color: rgb(179, 152, 1);
       box-shadow: 3px 3px 6px #818181;
       color: white;
+      font-weight: 600;
       border: none;
       border-radius: 10px;      
 

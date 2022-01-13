@@ -1,7 +1,7 @@
 <template>
   <div class="cart-container bg-light">
-    <div class="bg-black text-white py-2">
-      <h5>SUMMARY</h5>
+    <div class="bg-black text-white py-3">
+      <h5 class="m-0">SUMMARY</h5>
     </div>
     <div v-if="$store.getters.cart.length > 0">
       <div v-for="(item, index) in $store.getters.cart" :key="index" class="d-flex px-1 py-3 align-items-center justify-content-around border-bottom border-3">
@@ -20,8 +20,8 @@
     <div v-else>
       <p class="p-5 m-0"><b>HEY, YOUR CART IS EMPTY!</b></p>
     </div>
-    <div>
-      <h5 class="bg-black py-2 m-0 text-white">ORDER TOTAL: {{totalCartPrice}} €</h5>
+    <div class="bg-black py-3">
+      <h5 class="m-0">ORDER TOTAL: {{totalCartPrice}} €</h5>
     </div>
   </div>
 </template>
@@ -80,6 +80,10 @@
 
     span {
       font-weight: 600;
+    }
+
+    h5 {
+      color: #e2c104;
     }
 
     button {

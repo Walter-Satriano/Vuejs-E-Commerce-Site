@@ -37,6 +37,8 @@
   }
   
   .product-card {
+    display: flex;
+    flex-flow: column;
     max-width: 300px;
     border-radius: 15px;
     box-shadow: 6px 6px 12px #818181;
@@ -51,6 +53,7 @@
     .price {
       font-size: 1.3rem;
       font-weight: 600;
+      margin-top: auto;
     }
 
     .description {
@@ -58,9 +61,11 @@
     }
 
     button {
+      align-self: center;
       background-color: rgb(179, 152, 1);
       box-shadow: 3px 3px 6px #818181;
       color: white;
+      font-weight: 600;
       border: none;
       border-radius: 10px;      
 

@@ -16,6 +16,7 @@
     <div class="col-11 col-md-9 col-lg-8 col-xl-6 form-floating mx-auto mb-3">
       <input id="imageUrl" class="form-control" placeholder="Insert product image" v-model="imageUrl" required>
       <label for="imageUrl">Product Image URL</label>
+      <p class="mt-2 text-danger fw-bold">*Tip: For a better visualization, add a square image.</p>
     </div>
     <button type="submit" class="btn btn-lg">Add</button>
   </form>
